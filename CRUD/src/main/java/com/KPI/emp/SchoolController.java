@@ -17,8 +17,9 @@ public class SchoolController {
     		temp.setId(emt.getId());
     		temp.setName(emt.getName());
     		transformedvalues.add(temp);
-    		
     	}
-    	return (List<SchoolEntity>) transformedvalues.get(0);
+    	ArrayList<SchoolEntity> first=new ArrayList<SchoolEntity>();
+    	first.add(transformedvalues.get(0));
+    	return first;  
 	}
 }
