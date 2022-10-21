@@ -7,20 +7,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SampleController {
 	@Autowired
-	private CarRepo cr;
-	private BikeRepo br;
-	private TruckRepo tr;
+	private ResultRepo rr;
 	
 	@GetMapping("/numoftyres") 
-	public List<String> getSample(){
-		ArrayList<String> vnames=new ArrayList<String>();
-    	for(BikeEntity emt:br.findAll())
-    		vnames.add(emt.getBname());
-    	for(CarEntity emt:cr.findAll())
-    		vnames.add(emt.getCname());
-    	for(TruckEntity emt:tr.findAll())
-    		vnames.add(emt.getTname());
-    	return vnames;
+	public List<ResultEntity> getSample(){
+		ArrayList<ResultEntity> transformedvalues=new ArrayList<ResultEntity>();
+    	for(ResultEntity emt:rr.findAll()) {
+    		ResultEntity temp=new ResultEntity();
+    		temp.setCname(emt.getCname());
+    		temp.setBname(emt.getBname());
+    		temp.setTname(emt.getTname());
+    		transformedvalues.add(temp);
+    	}
+    	return transformedvalues;
 	}
 
 }
