@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ClientsController {
 	@Autowired
-	//private ClientsRepo cr;//up to date
-	@GetMapping("/client_discount/{term}/{payable}") 
+	private ClientsRepo cr;
+	final int percent=100;
+	int premium=0;
+	@GetMapping("/{term}/{payable}") 
 	public int getdisc(@PathVariable String term, @PathVariable int payable){
-		int premium=0;
-		if(term=="greaterthan5")
-			premium=(payable*12)/100;
-		else if(term=="equalto5")
-			premium=(payable*10)/100;
+		if(term.equals("greaterthan5"))
+			premium=(payable*88)/percent;
+		else if(term.equals("equalto5"))
+			premium=(payable*90)/percent;
 		else
 			premium=payable;
 		return premium;

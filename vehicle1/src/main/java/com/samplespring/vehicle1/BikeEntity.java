@@ -9,6 +9,8 @@ import javax.persistence.Table;
 public class BikeEntity {
 	@Id
 	private String bid;
+	private String bname;
+	private Integer numoftyres;
 	public String getBid() {
 		return bid;
 	}
@@ -27,7 +29,5 @@ public class BikeEntity {
 	public void setNumofbtyres(Integer numofbtyres) {
 		this.numoftyres = numofbtyres;
 	}
-	private String bname;
-	private Integer numoftyres;
 	
 }

@@ -8,6 +8,8 @@ import javax.persistence.Table;
 public class TruckEntity {
 	@Id
 	private String truckid;
+	private String truckname;
+	private Integer numoftyres;
 	public String getTid() {
 		return truckid;
 	}
@@ -26,7 +28,4 @@ public class TruckEntity {
 	public void setNumoftyres(Integer numoftyres) {
 		this.numoftyres = numoftyres;
 	}
-	private String truckname;
-	private Integer numoftyres;
-	
 }

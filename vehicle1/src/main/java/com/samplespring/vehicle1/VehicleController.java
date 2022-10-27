@@ -9,13 +9,18 @@ public class VehicleController {
 	private BikeRepo br;
 	@Autowired
 	private CarRepo cr;
-	@GetMapping("/bctyres") 
-	public List<BikeEntity> getbctyres (){
+	@Autowired
+	private TruckRepo tr;
+	@GetMapping("/b") 
+	public List<BikeEntity> getbtyres (){
 		return br.getjoin();
 	}
-	@GetMapping("/cttyres")
-	public List<CarEntity> getcttyres(){
-		return cr.getjoin2();
+	@GetMapping("/c")
+	public List<CarEntity> getctyres(){
+		return cr.getjoin();
 	}
-	
+	@GetMapping("/t")
+	public List<TruckEntity> getttyres(){
+		return tr.getjoin();
+	}
 }
